@@ -3,11 +3,15 @@ const jwt = require("jsonwebtoken");
 const prisma = require("../db/connectionToDB");
 const verifyToken = require("../middlewares/middlewares");
 const router = express.Router();
-const authControllers = require("../controllers/authControllers");
+const {
+  register,
+  login,
+  resetPassword,
+} = require("../controllers/authControllers");
 
-router.post("/register", authControllers.register());
+router.post("/register", register);
 
-router.get("/login", authControllers.login());
+router.get("/login", login);
 
-router.get("/resetPassword", authControllers.resetPassword());
+router.get("/resetPassword", resetPassword);
 module.exports = router;

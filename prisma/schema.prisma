@@ -13,14 +13,6 @@ model auth {
   Password String @db.VarChar(255)
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model customers {
-  name    String? @db.VarChar(255)
-  address String? @db.VarChar(255)
-
-  @@ignore
-}
-
 model utenti {
   id          Int     @id @default(autoincrement())
   user        String? @db.VarChar(255)
