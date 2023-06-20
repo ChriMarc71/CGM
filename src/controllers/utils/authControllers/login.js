@@ -1,4 +1,5 @@
-const prisma = require("@prisma/client");
+const { prisma } = require("../../../db/connectionToDB");
+const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
   const username = req.body.username;
   const password = req.body.password; //const {username,password} = req.body
@@ -13,7 +14,14 @@ const login = async (req, res) => {
   });
 
   if (founded.length != 0) {
-    const token = jwt.sign(founded[0].Id, "AlgernonAlgernonAlgernonAlgernon");
+    const token = jwt.sign(
+      { Id: founded[0].Id },
+      "AlgernonAlgernonAlgernonAlgernon",
+      {
+        expiresIn: "4h",
+        algorithm: "HS256",
+      }
+    );
     res.json({
       Token: token,
     });

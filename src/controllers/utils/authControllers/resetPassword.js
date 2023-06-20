@@ -1,4 +1,4 @@
-const prisma = require("@prisma/client");
+const { prisma } = require("../../../db/connectionToDB");
 const resetPassword = async (req, res) => {
   await prisma.auth.update({
     where: { Username: req.body.username },

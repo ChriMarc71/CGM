@@ -1,4 +1,4 @@
-const prisma = require("@prisma/client");
+const { prisma } = require("../../../db/connectionToDB");
 const getUserById = async (req, res) => {
   const user = await prisma.utenti.findUnique({
     where: {

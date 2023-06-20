@@ -1,4 +1,4 @@
-const prisma = require("@prisma/client");
+const { prisma } = require("../../../db/connectionToDB");
 const postNewUser = async (req, res) => {
   await prisma.utenti.create({
     data: {

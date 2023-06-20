@@ -10,8 +10,6 @@ const {
 } = require("../controllers/authControllers");
 
 router.post("/register", register);
-
 router.get("/login", login);
-
 router.get("/resetPassword", resetPassword);
 module.exports = router;

@@ -1,4 +1,4 @@
-const prisma = require("@prisma/client");
+const { prisma } = require("../../../db/connectionToDB");
 const putUserById = async (req, res) => {
   await prisma.utenti.update({
     where: {

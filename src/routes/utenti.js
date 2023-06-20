@@ -2,10 +2,12 @@ const express = require("express");
 const prisma = require("../db/connectionToDB.js");
 const router = express.Router();
 let bodyParser = require("body-parser");
+const { verifyToken } = require("../middlewares/middlewares.js");
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(
   bodyParser.raw({ inflate: true, limit: "100kb", type: "application/json" })
 );
+router.use(verifyToken);
 router.use(bodyParser.json({ type: "application/*+json" }));
 const {
   getUserById,

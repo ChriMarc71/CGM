@@ -1,4 +1,4 @@
-const prisma = require("@prisma/client");
+const { prisma } = require("../../../db/connectionToDB");
 const deleteUserById = async (req, res) => {
   await prisma.utenti.delete({
     where: {
