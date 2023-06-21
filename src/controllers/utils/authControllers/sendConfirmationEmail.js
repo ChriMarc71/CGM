@@ -10,8 +10,6 @@ const sendConfirmationEmail =  async (email,randomString)=>{
   }, function (error,info){
     if(error){
       console.log(error)
-    }else{
-      console.log("email inviata")
     }
   });
 }

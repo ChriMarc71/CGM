@@ -1,5 +1,5 @@
 const { prisma } = require("../../../db/connectionToDB");
-const {sendConfirmationEmail} = require("./confirmEmail.js");
+const {sendConfirmationEmail} = require("./sendConfirmationEmail.js");
 const { makeid } = require("../../../utils/makeid.js");
 const express = require("express");
 const app2 = express()
