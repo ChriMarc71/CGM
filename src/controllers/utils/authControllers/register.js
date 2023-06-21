@@ -6,6 +6,7 @@ const register = async (req, res) => {
     data: {
       Username: username,
       Password: password,
+      IsEnable:true
     },
   });
   res.send("Registrazione fatta");

@@ -10,6 +10,7 @@ const login = async (req, res) => {
     where: {
       Username: username,
       Password: password,
+      IsEnable: true
     },
   });
 
