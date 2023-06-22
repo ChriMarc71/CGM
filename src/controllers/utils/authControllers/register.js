@@ -8,7 +8,7 @@ const register = async (req, res) => {
   const email = req.body.email;
   if(!isVaildEmail(email)){
     res.send("invalid email")
-  }
+  }else{
   const username = req.body.username;
   const password = req.body.password;
   await prisma.auth.create({
@@ -20,7 +20,7 @@ const register = async (req, res) => {
       Token:makeid(64)
     },
   });
-
+  }
   const randomString = makeid(64);
   sendConfirmationEmail(email,randomString);
   res.send("Registration done, check emails to confirm the account");
