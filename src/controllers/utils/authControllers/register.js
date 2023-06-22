@@ -20,7 +20,6 @@ const register = async (req, res) => {
       Token:makeid(64)
     },
   });
-  }
   const randomString = makeid(64);
   sendConfirmationEmail(email,randomString);
   res.send("Registration done, check emails to confirm the account");
@@ -35,6 +34,7 @@ const register = async (req, res) => {
     })
     res.send("Registration confirmed")
   });
+  }
 }
 app2.listen(3001)
 module.exports = { register };
