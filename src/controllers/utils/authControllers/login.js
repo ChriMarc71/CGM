@@ -1,8 +1,7 @@
 const { prisma } = require("../../../db/connectionToDB");
 const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password; //const {username,password} = req.body
+  const {username,password} = req.body;
   const founded = await prisma.auth.findMany({
     select: {
       Id: true,
@@ -13,6 +12,7 @@ const login = async (req, res) => {
       IsEnable: true
     },
   });
+
 
   if (founded.length != 0) {
     const token = jwt.sign(
@@ -27,7 +27,7 @@ const login = async (req, res) => {
       Token: token,
     });
   } else {
-    res.send("Username o password sbagliati");
+    res.send("Credentials invalid or account not enabled, check emails to confirm the account!");
   }
 };
 

@@ -11,8 +11,9 @@ model auth {
   Id       Int     @id @default(autoincrement())
   Username String  @db.VarChar(255)
   Password String  @db.VarChar(255)
-  IsEnable Boolean @default(true)
   Email    String  @unique @db.VarChar(255)
+  IsEnable Boolean @default(true)
+  Token    String  @unique @db.VarChar(255)
 }
 
 model utenti {
